@@ -28,7 +28,7 @@ function incrementLikes() {
 
 function updateLikeDisplay() {
   likeCount.textContent = `${likes} likes`;
-  
+
   if (likes >= 10) {
     likeMessage.textContent = "Wow, thanks for all the likes!";
   } else if (likes >= 5) {
@@ -38,7 +38,11 @@ function updateLikeDisplay() {
   }
 }
 
-likeBtn.addEventListener("click", incrementLikes);
+if(likeBtn) {
+  likeBtn.addEventListener("click", incrementLikes);
+} else {
+  console.warn("like-btn not found on this page");
+}
 
 // Theme toggle
 const themeBtn = document.querySelector("#theme-btn");
